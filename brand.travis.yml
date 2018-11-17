@@ -1,0 +1,33 @@
+#role user
+sudo: required
+#OS yang digunakan
+dist: trusty
+#bhs yg digunakan
+language: php
+#versi bhasa yang digunakan
+php: 
+	-7.1
+#branch
+branches:
+	only:
+		- master
+		- devolop
+#sebelum instal
+before_install:
+	- wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+	- chmod +x phpunit-|version|.phar
+
+
+#proses instal
+install:
+	- sudo mv phpunit-|version|.phar /usr/local/bin/phpunit
+
+# befre script running
+before_script:
+	- ./phpunit --version
+
+#script main ekcecution
+script:
+
+#after success
+after_success:
