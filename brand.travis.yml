@@ -20,11 +20,11 @@ before_install:
 
 #proses instal
 install:
-   - sudo mv phpunit-7.phar phpunit
+    - sudo mv phpunit-7.phar phpunit
 
 # befre script running
 before_script:
-	   - ./phpunit --version
+    - ./phpunit --version
 
 #script main ekcecution
 script:
