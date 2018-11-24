@@ -14,8 +14,9 @@ branches:
        - devolop
 #sebelum instal
 before_install:
-    - wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
-    - chmod +x phpunit-7.phar
+    - cp .env.travis .env
+    - composer install --no-interaction
+    - php artisan key:generate
 
 
 #proses instal
@@ -28,6 +29,6 @@ before_script:
 
 #script main ekcecution
 script:
-
+    - - ./vendor/bin/phpunit
 #after success
 after_success:
